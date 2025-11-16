@@ -17,7 +17,7 @@
   border-radius: 50%;
   justify-content: center;
   justify-self:center;
-  
+  gap:space-evenly;
 }
 
 .images:hover {

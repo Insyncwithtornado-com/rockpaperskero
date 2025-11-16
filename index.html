@@ -21,112 +21,19 @@
 
 <div class="images">
 
-  <div class="items">
-<img src="the-rock-peoples-eyebrow.png" class="images" onclick="
-  const randomNumber = Math.random()
-  let computerMove = '';
-  
-  if (randomNumber >= 0 && randomNumber < 1/3 ){
-      computerMove = 'rock';
-  }
-
-  else if ( randomNumber >= 1/3 && randomNumber < 2/3){
-      computerMove = 'paper';
-  }
-
-  else if (randomNumber >= 2/3 && randomNumber < 1){
-      computerMove = 'skero';
-  }
-
-      let result = '';
-  if (computerMove === 'rock') {
-    result = 'Tie, Caught you, try again';
-  }
-  else if (computerMove === 'paper'){
-    result = 'you LOSE. YOU ARE AWARE YOU CANT BEST ME';
-    
-    
-  }
-
-  else if (computerMove === 'skero') {
-    result = 'you win... BEGINNERS LUCK';
-  }
-
-  alert(`${computerMove}. ${result}`);
-  ">
+<div class="item1">
+<img src="the-rock-peoples-eyebrow.png" class="images" onclick="playGame('rock');">
+  <p>Rock</p>
 </div>
 
-<div class="items">
-<img src="Screenshot 2025-10-21 101154.png" class="images" onclick="
-  const randomNumber = Math.random()
-  let computerMove = '';
-  
-  if (randomNumber >= 0 && randomNumber < 1/3 ){
-      computerMove = 'rock';
-  }
-
-  else if ( randomNumber >= 1/3 && randomNumber < 2/3){
-      computerMove = 'paper';
-  }
-
-  else if (randomNumber >= 2/3 && randomNumber < 1){
-      computerMove = 'skero';
-  }
-
-      let result = '';
-  if (computerMove === 'rock') {
-    result = 'you win... BEGINNERS LUCK';
-    
-    }
-
-  else if (computerMove === 'paper'){
-    result = 'Tie, Caught you, try again';
-  }
-
-  else if (computerMove === 'skero') {
-    result = 'you LOSE. YOU ARE AWARE YOU CANT BEST ME';
-  }
-
-  alert(`${computerMove}. ${result}`);
-  
-  ">
+<div class="item2">
+<img src="Screenshot 2025-10-21 101154.png" class="images" onclick="playGame('paper');">
+  <p>Paper</p>
 </div>
 
-<div class="items">
-<img src="manoega-scissors-stainless-steel-black__1215197_pe911911_s5.avif" class="images" onclick="
-  const randomNumber = Math.random()
-  let computerMove = '';
-  
-  if (randomNumber >= 0 && randomNumber < 1/3 ){
-      computerMove = 'rock';
-  }
-
-  else if ( randomNumber >= 1/3 && randomNumber < 2/3){
-      computerMove = 'paper';
-  }
-
-  else if (randomNumber >= 2/3 && randomNumber < 1){
-      computerMove = 'skero';
-  }
-
-      let result = '';
-  if (computerMove === 'rock') {
-    result = 'you LOSE. YOU ARE AWARE YOU CANT BEST ME';
-    
-    }
-
-  else if (computerMove === 'paper'){
-    result = 'you win... BEGINNERS LUCK';
-  }
-
-  else if (computerMove === 'skero') {
-    result = 'Tie, Caught you, try again';
-    
-  }
-
-  alert(`${computerMove}. ${result}`);
-  
-  ">
+<div class="item3">
+<img src="manoega-scissors-stainless-steel-black__1215197_pe911911_s5.avif" class="images" onclick="playGame('skero');">
+  <p>Skero</p>
 </div>
 
 </div>
@@ -135,5 +42,85 @@
 <button class="button">
   RESET
 </button>
+
+<script>
+  
+  function playGame(playerMove){ 
+
+    const computerMove = randomMovegenerator();
+
+    /*rock branch*/
+    if (playerMove === 'rock') {
+    if (computerMove === 'rock') {
+    result = '(Tie) Caught you, try again';
+  }
+  else if (computerMove === 'paper'){
+    result = '(you LOSE). YOU ARE AWARE YOU CANT BEST ME';
+    
+    
+  }
+
+  else if (computerMove === 'skero') {
+    result = '(you win)... BEGINNERS LUCK';
+  }
+  } /*paper branch*/
+
+    else if (playerMove === 'paper'){
+       if (computerMove === 'rock') {
+    result = '(you win)... BEGINNERS LUCK';
+    
+    }
+
+  else if (computerMove === 'paper'){
+    result = '(Tie) Caught you, try again';
+  }
+
+  else if (computerMove === 'skero') {
+    result = '(you LOSE) YOU ARE AWARE YOU CANT BEST ME';
+  }
+ } /*Skero branch*/
+
+    else if (playerMove === 'skero') {
+
+  if (computerMove === 'rock') {
+    result = '(you LOSE) YOU ARE AWARE YOU CANT BEST ME';
+    
+    }
+
+  else if (computerMove === 'paper'){
+    result = '(you win)... BEGINNERS LUCK';
+  }
+
+  else if (computerMove === 'skero') {
+    result = '(Tie) Caught you, try again';
+    
+  }
+    /*results desplay*/
+  }
+  alert(`${computerMove}. ${result}`);
+  }
+
+  /*Random move function*/
+  function randomMovegenerator() {
+    const randomNumber = Math.random()
+    let computerMove = '';
+
+  if (randomNumber >= 0 && randomNumber < 1/3 ){
+      computerMove = 'rock';
+  }
+
+  else if ( randomNumber >= 1/3 && randomNumber < 2/3){
+      computerMove = 'paper';
+  }
+
+  else if (randomNumber >= 2/3 && randomNumber < 1){
+      computerMove = 'skero';
+  }
+  return computerMove;
+  }
+
+
+</script>
+
 </body>
 </html>
