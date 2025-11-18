@@ -8,21 +8,28 @@
   font-family: michroma;
 }
 
-
+/*desktop media query*/
+  
 .images {
   display:grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: space-evenly;
+  justify-items: center;
+  
+}
+
+.pics {
+  display: grid;
+  border-radius: 50px;
   width: 100px;
   height: 100px;
-  border-radius: 50%;
-  justify-content: center;
-  justify-self:center;
-  gap:space-evenly;
+  gap: space-between;
+  
 }
 
 .images:hover {
   cursor:pointer;
-  background-color: blue; opacity: 0.8;
+  opacity: 0.8;
 }
 
 .button {
