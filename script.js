@@ -1,4 +1,8 @@
 
+let resultsText ='';
+
+let resultComment ='';
+
 /**Scoreboard object*/
   let scoreBoard = JSON.parse(localStorage.getItem('score')) || {
   Wins: 0,
@@ -6,15 +10,25 @@
   Ties: 0,
 };
 
+updateScoreelement();
+resultsDisplay();
+
   /*Reset score function*/
   function reset () {
     scoreBoard.Wins = 0;
     scoreBoard.Losses = 0;
     scoreBoard.Ties = 0;
-
     localStorage.setItem('score', JSON.stringify(scoreBoard));
+    resultComment = 'wins: 0 Losses: 0 Ties: 0'
+    resultsText = 'GAME RESET, LETS DO THIS AGAIN. PICK A MOVE'
+
+    updateScoreelement();
+  resultsDisplay();
   }
 
+  
+
+  
   /*Game play function*/
   
   function playGame(playerMove){ 
@@ -80,12 +94,29 @@
   }
 
   localStorage.setItem('score', JSON.stringify(scoreBoard));
+    updateScoreelement();
+   
 
    /*results desplay*/
-  alert(`Computer picked ${computerMove}. ${result}.
+  resultsText = (`Computer picked ${computerMove}. ${result}`);
 
+   
+  resultComment = (`Wins:${scoreBoard.Wins}  Losses:${scoreBoard.Losses}  Ties:${scoreBoard.Ties}`);
 
-   Wins:${scoreBoard.Wins}  Losses:${scoreBoard.Losses}  Ties:${scoreBoard.Ties}`);
+   updateScoreelement();
+  resultsDisplay();
+  }
+
+  /*results display function*/
+  function resultsDisplay(){
+    document.querySelector('.js-resultsDisplay')
+    .innerHTML = resultsText;
+  }
+
+  /*Update Score Function*/
+  function updateScoreelement (){
+    document.querySelector('.js-score')
+  .innerHTML= resultComment;
   }
 
   /*Random move function*/
